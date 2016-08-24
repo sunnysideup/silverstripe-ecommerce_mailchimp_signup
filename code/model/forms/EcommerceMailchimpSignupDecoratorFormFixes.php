@@ -30,11 +30,11 @@ class EcommerceMailchimpSignupDecoratorFormFixes extends Extension {
                 if($config->MailchimpSignupIntro) {
                     $fields->push(new LiteralField("MailchimpNewsletterSignupContent", "<p class=\"ecommerceMailchimpSignupContent\">".$config->MailchimpSignupIntro."</p>"));
                 }
-                $label = $config->mailchimpSignupLabel;
+                $label = $config->MailchimpSignupLabel;
                 if(!$label) {
                     $label = _t("EcommerceMailchimpSignupDecoratorFormFixes.JOIN", "Join");
                 }
-                $fields->push(new CheckboxField("MailchimpNewsletterSubscribeCheckBox", $config->mailchimpSignupLabel));
+                $fields->push(new CheckboxField("MailchimpNewsletterSubscribeCheckBox", $label));
             }
         }
     }

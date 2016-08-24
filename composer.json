@@ -14,7 +14,7 @@
 	],
 	"require":{
 		"sunnysideup/ecommerce": "*",
-		"drewm/mailchimp-api": "v.2.2.4"
+		"drewm/mailchimp-api": "v2.2.4"
 	},
 	"extra": {
 		"installer-name": "ecommerce_mailchimp_signup"

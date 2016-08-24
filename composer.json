@@ -1,0 +1,24 @@
+{
+	"name": "sunnysideup/ecommerce_mailchimp_signup",
+	"type": "silverstripe-module",
+	"description": "add a newsletter signup to your e-commerce checkout - specifically for campaign monitor newsletter module",
+	"homepage": "http://www.silverstripe-ecommerce.com",
+	"keywords": ["ecommerce", "e-commerce", "shop", "newsletter","news letter", "silverstripe", "signup to newsletter", "mailchimp"],
+	"license": "Sunny Side Up (BSD-3-Clause and CUSTOM)",
+	"authors":[
+		{
+			"name": "Nicolaas Francken",
+			"homepage": "https://github.com/sunnysideup",
+			"email" : "modules@sunnysideup.co.nz",
+			"role" : "lead developer"
+		}
+	],
+	"require":{
+		"sunnysideup/ecommerce": "*",
+		"drewm/mailchimp-api": "v.2.2.4"
+	},
+	"extra": {
+		"installer-name": "ecommerce_mailchimp_signup"
+	}
+}
+

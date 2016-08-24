@@ -1,0 +1,16 @@
+---
+Name: ecommerce_newsletter_campaign_monitor
+Before: 'mysite/*'
+After: 'framework/*','cms/*','ecommerce/*'
+---
+OrderForm:
+  extensions:
+    - EcommerceMailchimpSignupDecoratorFormFixes
+
+EcommerceDBConfig:
+  extensions:
+    - EcommerceMailchimpSignupDecoratorConfigFixes
+
+Member:
+  extensions:
+    - EcommerceMailchimpSignupMemberExtension

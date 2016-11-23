@@ -1,7 +1,8 @@
 <?php
 
 
-class EcommerceMailchimpSignupDecoratorFormFixes extends Extension {
+class EcommerceMailchimpSignupDecoratorFormFixes extends Extension
+{
 
     /**
      *
@@ -18,20 +19,21 @@ class EcommerceMailchimpSignupDecoratorFormFixes extends Extension {
     /**
      * @param FieldList
      */
-    public function updateFields(FieldList $fields) {
+    public function updateFields(FieldList $fields)
+    {
         $order = ShoppingCart::current_order();
         $member = $order->Member();
-        if($member) {
-            if( ! $member->existsOnMailchimp()) {
+        if ($member) {
+            if (! $member->existsOnMailchimp()) {
                 $config = EcommerceDBConfig::current_ecommerce_db_config();
-                if($config->MailchimpSignupHeader) {
+                if ($config->MailchimpSignupHeader) {
                     $fields->push(new HeaderField("MailchimpNewsletterSignupHeader", $config->MailchimpSignupHeader, 3));
                 }
-                if($config->MailchimpSignupIntro) {
+                if ($config->MailchimpSignupIntro) {
                     $fields->push(new LiteralField("MailchimpNewsletterSignupContent", "<p class=\"ecommerceMailchimpSignupContent\">".$config->MailchimpSignupIntro."</p>"));
                 }
                 $label = $config->MailchimpSignupLabel;
-                if(!$label) {
+                if (!$label) {
                     $label = _t("EcommerceMailchimpSignupDecoratorFormFixes.JOIN", "Join");
                 }
                 $fields->push(new CheckboxField("MailchimpNewsletterSubscribeCheckBox", $label));
@@ -47,16 +49,16 @@ class EcommerceMailchimpSignupDecoratorFormFixes extends Extension {
      * @param type $form
      * @return type
      */
-    public function onRawSubmit($data, $form, $order) {
-        if( ! empty($data['MailchimpNewsletterSubscribeCheckBox'])) {
-            if($data['MailchimpNewsletterSubscribeCheckBox'] == 1) {
+    public function onRawSubmit($data, $form, $order)
+    {
+        if (! empty($data['MailchimpNewsletterSubscribeCheckBox'])) {
+            if ($data['MailchimpNewsletterSubscribeCheckBox'] == 1) {
                 $member = $order->Member();
-                if( ! $member->existsOnMailchimp()) {
+                if (! $member->existsOnMailchimp()) {
                     $member->subscribeToMailchimp();
                 }
                 $member->updateOnMailchimp();
             }
         }
     }
-
 }

@@ -4,7 +4,6 @@
 
 class EcommerceMailchimpSignupMemberExtension extends DataExtension
 {
-
     private static $db = array(
         'SignedUpToMailchimp' => "Boolean"
     );
@@ -14,7 +13,8 @@ class EcommerceMailchimpSignupMemberExtension extends DataExtension
      * @param array $mergeVars
      * @return Boolean
      */
-    public function subscribeToMailchimp($mergeVars = array()) {
+    public function subscribeToMailchimp($mergeVars = array())
+    {
         $listID = Config::inst()->get('EcommerceMailchimpSignupDecoratorFormFixes', 'mailchimp_list_id');
 
         $mailChimp = $this->getMailChimpAPI();
@@ -38,7 +38,6 @@ class EcommerceMailchimpSignupMemberExtension extends DataExtension
             return false;
         }
         return $result;
-
     }
 
     /**
@@ -47,7 +46,7 @@ class EcommerceMailchimpSignupMemberExtension extends DataExtension
      */
     public function existsOnMailchimp()
     {
-        if($this->owner->SignedUpToMailchimp) {
+        if ($this->owner->SignedUpToMailchimp) {
             return true;
         }
 
@@ -67,8 +66,6 @@ class EcommerceMailchimpSignupMemberExtension extends DataExtension
         } else {
             return false;
         }
-
-
     }
 
     /**
@@ -97,7 +94,6 @@ class EcommerceMailchimpSignupMemberExtension extends DataExtension
         } else {
             return false;
         }
-
     }
 
     /**
@@ -111,12 +107,11 @@ class EcommerceMailchimpSignupMemberExtension extends DataExtension
     protected function getMailChimpAPI()
     {
         require_once(Director::baseFolder().'/vendor/drewm/mailchimp-api/src/MailChimp.php');
-        if(self::$_mailchimp_api) {
+        if (self::$_mailchimp_api) {
             //..
         } else {
             self::$_mailchimp_api = new \DrewM\MailChimp\MailChimp(Config::inst()->get('EcommerceMailchimpSignupDecoratorFormFixes', 'mailchimp_api_key'));
         }
         return self::$_mailchimp_api;
     }
-
 }

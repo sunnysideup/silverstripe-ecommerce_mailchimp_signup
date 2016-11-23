@@ -1,16 +1,16 @@
 <?php
 
 
-class EcommerceMailchimpSignupDecoratorConfigFixes extends DataExtension {
+class EcommerceMailchimpSignupDecoratorConfigFixes extends DataExtension
+{
+    private static $db = array(
+        "MailchimpSignupHeader" => "Varchar(50)",
+        "MailchimpSignupIntro" => "Varchar(255)",
+        "MailchimpSignupLabel" => "Varchar(30)"
+    );
 
-	private static $db = array(
-		"MailchimpSignupHeader" => "Varchar(50)",
-		"MailchimpSignupIntro" => "Varchar(255)",
-		"MailchimpSignupLabel" => "Varchar(30)"
-	);
-
-	function updateCMSFields(FieldList $fields) {
-
+    public function updateCMSFields(FieldList $fields)
+    {
         $fields->addFieldsToTab(
             "Root.Newsletter",
             array(
@@ -19,6 +19,5 @@ class EcommerceMailchimpSignupDecoratorConfigFixes extends DataExtension {
                 new TextField("MailchimpSignupLabel", _t("EcommerceMailchimpSignup.LABEL", "Label"))
             )
         );
-	}
-
+    }
 }

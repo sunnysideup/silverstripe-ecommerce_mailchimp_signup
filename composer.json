@@ -27,7 +27,5 @@
         "drewm/mailchimp-api": "*",
         "silverstripe/recipe-cms": "*"
     },
-    "extra": {
-        "installer-name": "ecommerce_mailchimp_signup"
-    }
+    "extra": []
 }

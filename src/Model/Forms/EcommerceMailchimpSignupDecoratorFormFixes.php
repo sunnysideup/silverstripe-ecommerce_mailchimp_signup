@@ -2,13 +2,21 @@
 
 namespace Sunnysideup\EcommerceMailchimpSignup\Model\Forms;
 
-use Extension;
-use FieldList;
-use ShoppingCart;
-use EcommerceDBConfig;
-use HeaderField;
-use LiteralField;
-use CheckboxField;
+
+
+
+
+
+
+
+use SilverStripe\Forms\FieldList;
+use Sunnysideup\Ecommerce\Api\ShoppingCart;
+use Sunnysideup\Ecommerce\Model\Config\EcommerceDBConfig;
+use SilverStripe\Forms\HeaderField;
+use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Core\Extension;
+
 
 
 

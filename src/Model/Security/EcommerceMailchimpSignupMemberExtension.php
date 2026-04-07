@@ -2,9 +2,14 @@
 
 namespace Sunnysideup\EcommerceMailchimpSignup\Model\Security;
 
-use DataExtension;
-use Config;
-use Director;
+
+
+
+use SilverStripe\Core\Config\Config;
+use Sunnysideup\EcommerceMailchimpSignup\Model\Forms\EcommerceMailchimpSignupDecoratorFormFixes;
+use SilverStripe\Control\Director;
+use SilverStripe\ORM\DataExtension;
+
 
 
 
@@ -50,7 +55,7 @@ class EcommerceMailchimpSignupMemberExtension extends DataExtension
   * EXP: Check if you should be using Name::class here instead of hard-coded class.
   * ### @@@@ STOP REPLACEMENT @@@@ ###
   */
-        $listID = Config::inst()->get('EcommerceMailchimpSignupDecoratorFormFixes', 'mailchimp_list_id');
+        $listID = Config::inst()->get(EcommerceMailchimpSignupDecoratorFormFixes::class, 'mailchimp_list_id');
 
         $mailChimp = $this->getMailChimpAPI();
 
@@ -96,7 +101,7 @@ class EcommerceMailchimpSignupMemberExtension extends DataExtension
   * EXP: Check if you should be using Name::class here instead of hard-coded class.
   * ### @@@@ STOP REPLACEMENT @@@@ ###
   */
-        $listID = Config::inst()->get('EcommerceMailchimpSignupDecoratorFormFixes', 'mailchimp_list_id');
+        $listID = Config::inst()->get(EcommerceMailchimpSignupDecoratorFormFixes::class, 'mailchimp_list_id');
 
         $subscriberHash = $mailChimp->subscriberHash($this->owner->Email);
 
@@ -129,7 +134,7 @@ class EcommerceMailchimpSignupMemberExtension extends DataExtension
   * EXP: Check if you should be using Name::class here instead of hard-coded class.
   * ### @@@@ STOP REPLACEMENT @@@@ ###
   */
-        $listID = Config::inst()->get('EcommerceMailchimpSignupDecoratorFormFixes', 'mailchimp_list_id');
+        $listID = Config::inst()->get(EcommerceMailchimpSignupDecoratorFormFixes::class, 'mailchimp_list_id');
 
         $subscriberHash = $mailChimp->subscriberHash($this->owner->Email);
 
@@ -172,7 +177,7 @@ class EcommerceMailchimpSignupMemberExtension extends DataExtension
   * EXP: Check if you should be using Name::class here instead of hard-coded class.
   * ### @@@@ STOP REPLACEMENT @@@@ ###
   */
-            self::$_mailchimp_api = new \DrewM\MailChimp\MailChimp(Config::inst()->get('EcommerceMailchimpSignupDecoratorFormFixes', 'mailchimp_api_key'));
+            self::$_mailchimp_api = new \DrewM\MailChimp\MailChimp(Config::inst()->get(EcommerceMailchimpSignupDecoratorFormFixes::class, 'mailchimp_api_key'));
         }
         return self::$_mailchimp_api;
     }

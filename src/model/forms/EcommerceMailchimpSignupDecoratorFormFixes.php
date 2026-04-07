@@ -1,6 +1,15 @@
 <?php
 
 
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD:  extends Extension (ignore case)
+  * NEW:  extends Extension ...  (COMPLEX)
+  * EXP: Check for use of $this->anyVar and replace with $this->anyVar[$this->owner->ID] or consider turning the class into a trait
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
 class EcommerceMailchimpSignupDecoratorFormFixes extends Extension
 {
 

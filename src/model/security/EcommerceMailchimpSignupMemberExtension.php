@@ -2,6 +2,15 @@
 
 
 
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD:  extends DataExtension (ignore case)
+  * NEW:  extends DataExtension ...  (COMPLEX)
+  * EXP: Check for use of $this->anyVar and replace with $this->anyVar[$this->owner->ID] or consider turning the class into a trait
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
 class EcommerceMailchimpSignupMemberExtension extends DataExtension
 {
 
@@ -25,6 +34,15 @@ class EcommerceMailchimpSignupMemberExtension extends DataExtension
      */
     public function subscribeToMailchimp($mergeVars = array())
     {
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: Config::inst()->get('
+  * NEW: Config::inst()->get(' ...  (COMPLEX)
+  * EXP: Check if you should be using Name::class here instead of hard-coded class.
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
         $listID = Config::inst()->get('EcommerceMailchimpSignupDecoratorFormFixes', 'mailchimp_list_id');
 
         $mailChimp = $this->getMailChimpAPI();
@@ -62,6 +80,15 @@ class EcommerceMailchimpSignupMemberExtension extends DataExtension
 
         $mailChimp = $this->getMailChimpAPI();
 
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: Config::inst()->get('
+  * NEW: Config::inst()->get(' ...  (COMPLEX)
+  * EXP: Check if you should be using Name::class here instead of hard-coded class.
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
         $listID = Config::inst()->get('EcommerceMailchimpSignupDecoratorFormFixes', 'mailchimp_list_id');
 
         $subscriberHash = $mailChimp->subscriberHash($this->owner->Email);
@@ -86,6 +113,15 @@ class EcommerceMailchimpSignupMemberExtension extends DataExtension
     {
         $mailChimp = $this->getMailChimpAPI();
 
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: Config::inst()->get('
+  * NEW: Config::inst()->get(' ...  (COMPLEX)
+  * EXP: Check if you should be using Name::class here instead of hard-coded class.
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
         $listID = Config::inst()->get('EcommerceMailchimpSignupDecoratorFormFixes', 'mailchimp_list_id');
 
         $subscriberHash = $mailChimp->subscriberHash($this->owner->Email);
@@ -120,6 +156,15 @@ class EcommerceMailchimpSignupMemberExtension extends DataExtension
         if (self::$_mailchimp_api) {
             //..
         } else {
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * WHY: automated upgrade
+  * OLD: Config::inst()->get('
+  * NEW: Config::inst()->get(' ...  (COMPLEX)
+  * EXP: Check if you should be using Name::class here instead of hard-coded class.
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
             self::$_mailchimp_api = new \DrewM\MailChimp\MailChimp(Config::inst()->get('EcommerceMailchimpSignupDecoratorFormFixes', 'mailchimp_api_key'));
         }
         return self::$_mailchimp_api;

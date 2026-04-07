@@ -1,6 +1,6 @@
 ---
 Name: ecommerce_newsletter_campaign_monitor
-Before: 'mysite/*'
+Before: 'app/*'
 After: 'framework/*','cms/*','ecommerce/*'
 ---
 OrderForm:
@@ -11,6 +11,6 @@ EcommerceDBConfig:
   extensions:
     - EcommerceMailchimpSignupDecoratorConfigFixes
 
-Member:
+SilverStripe\Security\Member:
   extensions:
     - EcommerceMailchimpSignupMemberExtension

@@ -1,5 +1,12 @@
 <?php
 
+namespace Sunnysideup\EcommerceMailchimpSignup\Model\Config;
+
+use DataExtension;
+use FieldList;
+use TextField;
+
+
 
 
 /**

@@ -1,5 +1,16 @@
 <?php
 
+namespace Sunnysideup\EcommerceMailchimpSignup\Model\Forms;
+
+use Extension;
+use FieldList;
+use ShoppingCart;
+use EcommerceDBConfig;
+use HeaderField;
+use LiteralField;
+use CheckboxField;
+
+
 
 
 /**

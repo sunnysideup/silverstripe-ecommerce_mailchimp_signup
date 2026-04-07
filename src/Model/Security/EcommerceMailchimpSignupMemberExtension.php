@@ -1,5 +1,12 @@
 <?php
 
+namespace Sunnysideup\EcommerceMailchimpSignup\Model\Security;
+
+use DataExtension;
+use Config;
+use Director;
+
+
 
 
 

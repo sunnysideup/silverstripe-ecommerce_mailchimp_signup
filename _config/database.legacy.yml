@@ -1,0 +1,5 @@
+SilverStripe\ORM\DatabaseAdmin:
+  classname_value_remapping:
+    EcommerceMailchimpSignupDecoratorFormFixes: Sunnysideup\EcommerceMailchimpSignup\Model\Forms\EcommerceMailchimpSignupDecoratorFormFixes
+    EcommerceMailchimpSignupMemberExtension: Sunnysideup\EcommerceMailchimpSignup\Model\Security\EcommerceMailchimpSignupMemberExtension
+    EcommerceMailchimpSignupDecoratorConfigFixes: Sunnysideup\EcommerceMailchimpSignup\Model\Config\EcommerceMailchimpSignupDecoratorConfigFixes

@@ -24,8 +24,8 @@
     ],
     "require": {
         "sunnysideup/ecommerce": "*",
-        "drewm/mailchimp-api": "v2.2.4",
-        "silverstripe/recipe-cms": "^4.4"
+        "drewm/mailchimp-api": "*",
+        "silverstripe/recipe-cms": "*"
     },
     "extra": {
         "installer-name": "ecommerce_mailchimp_signup"

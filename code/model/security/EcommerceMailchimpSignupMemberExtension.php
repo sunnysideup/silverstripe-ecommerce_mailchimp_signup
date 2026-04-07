@@ -115,3 +115,4 @@ class EcommerceMailchimpSignupMemberExtension extends DataExtension
         return self::$_mailchimp_api;
     }
 }
+

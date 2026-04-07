@@ -21,3 +21,4 @@ class EcommerceMailchimpSignupDecoratorConfigFixes extends DataExtension
         );
     }
 }
+

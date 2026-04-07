@@ -27,5 +27,10 @@
         "drewm/mailchimp-api": "*",
         "silverstripe/recipe-cms": "*"
     },
-    "extra": []
+    "extra": [],
+    "autoload": {
+        "psr-4": {
+            "Sunnysideup\\EcommerceMailchimpSignup\\": "src/"
+        }
+    }
 }

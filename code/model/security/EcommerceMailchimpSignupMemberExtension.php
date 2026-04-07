@@ -4,6 +4,16 @@
 
 class EcommerceMailchimpSignupMemberExtension extends DataExtension
 {
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * OLD: private static $db
+  * EXP: Check that is class indeed extends DataObject and that it is not a data-extension!
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+    
+    private static $table_name = 'EcommerceMailchimpSignupMemberExtension';
+
     private static $db = array(
         'SignedUpToMailchimp' => "Boolean"
     );

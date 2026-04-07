@@ -3,6 +3,16 @@
 
 class EcommerceMailchimpSignupDecoratorConfigFixes extends DataExtension
 {
+
+/**
+  * ### @@@@ START REPLACEMENT @@@@ ###
+  * OLD: private static $db
+  * EXP: Check that is class indeed extends DataObject and that it is not a data-extension!
+  * ### @@@@ STOP REPLACEMENT @@@@ ###
+  */
+    
+    private static $table_name = 'EcommerceMailchimpSignupDecoratorConfigFixes';
+
     private static $db = array(
         "MailchimpSignupHeader" => "Varchar(50)",
         "MailchimpSignupIntro" => "Varchar(255)",

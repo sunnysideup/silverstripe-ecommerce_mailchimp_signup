@@ -3,7 +3,6 @@ Name: ecommerce_newsletter_campaign_monitor
 Before: 'app/*'
 After:
   - 'framework/*'
-  - 'cms/*'
   - 'ecommerce/*'
 ---
 Sunnysideup\Ecommerce\Forms\OrderForm:

@@ -1,16 +1,16 @@
 ---
 Name: ecommerce_newsletter_campaign_monitor
-Before: 'mysite/*'
-After: 'framework/*','cms/*','ecommerce/*'
+Before: 'app/*'
+After:
+  - 'framework/*'
+  - 'ecommerce/*'
 ---
-OrderForm:
+Sunnysideup\Ecommerce\Forms\OrderForm:
   extensions:
-    - EcommerceMailchimpSignupDecoratorFormFixes
-
-EcommerceDBConfig:
+    - Sunnysideup\EcommerceMailchimpSignup\Model\Forms\EcommerceMailchimpSignupDecoratorFormFixes
+Sunnysideup\Ecommerce\Model\Config\EcommerceDBConfig:
   extensions:
-    - EcommerceMailchimpSignupDecoratorConfigFixes
-
-Member:
+    - Sunnysideup\EcommerceMailchimpSignup\Model\Config\EcommerceMailchimpSignupDecoratorConfigFixes
+SilverStripe\Security\Member:
   extensions:
-    - EcommerceMailchimpSignupMemberExtension
+    - Sunnysideup\EcommerceMailchimpSignup\Model\Security\EcommerceMailchimpSignupMemberExtension

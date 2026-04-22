@@ -32,16 +32,19 @@ class EcommerceMailchimpSignupDecoratorFormFixes extends Extension
         if ($member && ! $member->existsOnMailchimp()) {
             $config = EcommerceDBConfig::current_ecommerce_db_config();
             if ($config->MailchimpSignupHeader) {
-                $fields->push(new HeaderField('MailchimpNewsletterSignupHeader', $config->MailchimpSignupHeader, 3));
+                $fields->push(HeaderField::create('MailchimpNewsletterSignupHeader', $config->MailchimpSignupHeader, 3));
             }
+
             if ($config->MailchimpSignupIntro) {
-                $fields->push(new LiteralField('MailchimpNewsletterSignupContent', '<p class="ecommerceMailchimpSignupContent">' . $config->MailchimpSignupIntro . '</p>'));
+                $fields->push(LiteralField::create('MailchimpNewsletterSignupContent', '<p class="ecommerceMailchimpSignupContent">' . $config->MailchimpSignupIntro . '</p>'));
             }
+
             $label = $config->MailchimpSignupLabel;
             if (! $label) {
                 $label = _t('EcommerceMailchimpSignupDecoratorFormFixes.JOIN', 'Join');
             }
-            $fields->push(new CheckboxField('MailchimpNewsletterSubscribeCheckBox', $label));
+
+            $fields->push(CheckboxField::create('MailchimpNewsletterSubscribeCheckBox', $label));
         }
     }
 
@@ -59,6 +62,7 @@ class EcommerceMailchimpSignupDecoratorFormFixes extends Extension
             if (! $member->existsOnMailchimp()) {
                 $member->subscribeToMailchimp();
             }
+
             $member->updateOnMailchimp();
         }
     }

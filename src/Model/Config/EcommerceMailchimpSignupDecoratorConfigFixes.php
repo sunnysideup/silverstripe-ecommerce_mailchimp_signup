@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Sunnysideup\EcommerceMailchimpSignup\Model\Config;
 
+use SilverStripe\Core\Extension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
-use SilverStripe\ORM\DataExtension;
 
-class EcommerceMailchimpSignupDecoratorConfigFixes extends DataExtension
+class EcommerceMailchimpSignupDecoratorConfigFixes extends Extension
 {
     private static $db = [
         'MailchimpSignupHeader' => 'Varchar(50)',
@@ -19,9 +21,9 @@ class EcommerceMailchimpSignupDecoratorConfigFixes extends DataExtension
         $fields->addFieldsToTab(
             'Root.Newsletter',
             [
-                new TextField('MailchimpSignupHeader', _t('EcommerceMailchimpSignup.HEADER', 'Header')),
-                new TextField('MailchimpSignupIntro', _t('EcommerceMailchimpSignup.INTRO', 'Intro')),
-                new TextField('MailchimpSignupLabel', _t('EcommerceMailchimpSignup.LABEL', 'Label')),
+                TextField::create('MailchimpSignupHeader', _t('EcommerceMailchimpSignup.HEADER', 'Header')),
+                TextField::create('MailchimpSignupIntro', _t('EcommerceMailchimpSignup.INTRO', 'Intro')),
+                TextField::create('MailchimpSignupLabel', _t('EcommerceMailchimpSignup.LABEL', 'Label')),
             ]
         );
     }

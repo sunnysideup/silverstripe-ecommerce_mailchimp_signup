@@ -2,12 +2,13 @@
 
 namespace Sunnysideup\EcommerceMailchimpSignup\Model\Security;
 
+use SilverStripe\Core\Extension;
+use DrewM\MailChimp\MailChimp;
 use SilverStripe\Control\Director;
 use SilverStripe\Core\Config\Config;
-use SilverStripe\ORM\DataExtension;
 use Sunnysideup\EcommerceMailchimpSignup\Model\Forms\EcommerceMailchimpSignupDecoratorFormFixes;
 
-class EcommerceMailchimpSignupMemberExtension extends DataExtension
+class EcommerceMailchimpSignupMemberExtension extends Extension
 {
     private static $db = [
         'SignedUpToMailchimp' => 'Boolean',
@@ -42,6 +43,7 @@ class EcommerceMailchimpSignupMemberExtension extends DataExtension
         } else {
             return false;
         }
+
         return $result;
     }
 
@@ -114,8 +116,9 @@ class EcommerceMailchimpSignupMemberExtension extends DataExtension
             //..
         } else {
 
-            self::$_mailchimp_api = new \DrewM\MailChimp\MailChimp(Config::inst()->get(EcommerceMailchimpSignupDecoratorFormFixes::class, 'mailchimp_api_key'));
+            self::$_mailchimp_api = new MailChimp(Config::inst()->get(EcommerceMailchimpSignupDecoratorFormFixes::class, 'mailchimp_api_key'));
         }
+
         return self::$_mailchimp_api;
     }
 }

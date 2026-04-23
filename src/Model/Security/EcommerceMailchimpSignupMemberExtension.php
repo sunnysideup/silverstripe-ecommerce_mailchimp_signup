@@ -29,16 +29,16 @@ class EcommerceMailchimpSignupMemberExtension extends Extension
             'lists/' . $listID . '/members',
             [
                 'status' => 'subscribed',
-                'email_address' => $this->owner->Email,
+                'email_address' => $this->getOwner()->Email,
                 'merge_fields' => $mergeVars + [
-                    'FNAME' => $this->owner->FirstName,
-                    'LNAME' => $this->owner->Surname,
+                    'FNAME' => $this->getOwner()->FirstName,
+                    'LNAME' => $this->getOwner()->Surname,
                 ],
             ]
         );
         if ($mailChimp->success()) {
-            $this->owner->SignedUpToMailchimp = true;
-            $this->owner->write();
+            $this->getOwner()->SignedUpToMailchimp = true;
+            $this->getOwner()->write();
             return true;
         } else {
             return false;
@@ -52,7 +52,7 @@ class EcommerceMailchimpSignupMemberExtension extends Extension
      */
     public function existsOnMailchimp()
     {
-        if ($this->owner->SignedUpToMailchimp) {
+        if ($this->getOwner()->SignedUpToMailchimp) {
             return true;
         }
 
@@ -60,14 +60,14 @@ class EcommerceMailchimpSignupMemberExtension extends Extension
 
         $listID = Config::inst()->get(EcommerceMailchimpSignupDecoratorFormFixes::class, 'mailchimp_list_id');
 
-        $subscriberHash = $mailChimp->subscriberHash($this->owner->Email);
+        $subscriberHash = $mailChimp->subscriberHash($this->getOwner()->Email);
 
         $mailChimp->get(
             'lists/' . $listID . '/members/' . $subscriberHash
         );
         if ($mailChimp->success()) {
-            $this->owner->SignedUpToMailchimp = true;
-            $this->owner->write();
+            $this->getOwner()->SignedUpToMailchimp = true;
+            $this->getOwner()->write();
             return true;
         } else {
             return false;
@@ -83,14 +83,14 @@ class EcommerceMailchimpSignupMemberExtension extends Extension
 
         $listID = Config::inst()->get(EcommerceMailchimpSignupDecoratorFormFixes::class, 'mailchimp_list_id');
 
-        $subscriberHash = $mailChimp->subscriberHash($this->owner->Email);
+        $subscriberHash = $mailChimp->subscriberHash($this->getOwner()->Email);
 
         $mailChimp->patch(
             'lists/' . $listID . '/members/' . $subscriberHash,
             [
                 'merge_fields' => [
-                    'FNAME' => $this->owner->FirstName,
-                    'LNAME' => $this->owner->Surname,
+                    'FNAME' => $this->getOwner()->FirstName,
+                    'LNAME' => $this->getOwner()->Surname,
                 ],
             ]
         );

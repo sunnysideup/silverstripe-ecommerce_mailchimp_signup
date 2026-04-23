@@ -23,14 +23,20 @@
     }
   ],
   "require": {
-    "sunnysideup/ecommerce": "^5.0-dev",
     "drewm/mailchimp-api": "*",
-    "silverstripe/recipe-cms": "^5.0"
+    "silverstripe/recipe-cms": "^6.0"
   },
   "extra": [],
   "autoload": {
     "psr-4": {
       "Sunnysideup\\EcommerceMailchimpSignup\\": "src/"
+    }
+  },
+  "yet-to-update": {
+    "sunnysideup/ecommerce": {
+      "section": "require",
+      "current": "^5.0-dev",
+      "reason": "no-compatible-stable-release"
     }
   }
 }
